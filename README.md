@@ -41,3 +41,7 @@ $ make
 ```
 $ make clean
 ```
+
+## Reference
+
+* [使用 Djinni 开发 Android, iOS 共享库](http://eevee.cc/2016/05/06/using-djinni/)
