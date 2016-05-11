@@ -5,7 +5,7 @@ Easy Calculator on iOS and Android - An example of [Djinni](https://github.com/d
 
 ---
 
-# [sample/hellodjinni](https://github.com/joinAero/XCalculator/sample/hellodjinni)
+# [sample/hellodjinni](https://github.com/joinAero/XCalculator/tree/master/sample/hellodjinni)
 
 The sample about using [Djinni](https://github.com/dropbox/djinni).
 
