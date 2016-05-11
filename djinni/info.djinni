@@ -1,0 +1,3 @@
+info = interface +c {
+    static abi(): string;
+}

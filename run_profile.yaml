@@ -1,0 +1,24 @@
+# Required
+djinni:
+  dir: $HOME/Workspace/Fever/Dropbox/djinni
+in:
+  idl: djinni/all.djinni
+# Optional
+out:
+  dir:
+
+# Optional details
+java:
+  out:
+  package: cc.eevee.xcalc.core
+cpp:
+  out:
+  namespace: xcalc
+jni:
+  out:
+objc:
+  out:
+  type:
+    prefix:
+objcpp:
+  out:

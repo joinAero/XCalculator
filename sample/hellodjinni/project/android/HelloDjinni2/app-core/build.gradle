@@ -1,0 +1,64 @@
+apply plugin: 'com.android.model.library'
+
+model {
+    android {
+        compileSdkVersion = 23
+        buildToolsVersion = '23.0.3'
+
+        defaultConfig {
+            minSdkVersion.apiLevel    = 14
+            targetSdkVersion.apiLevel = 23
+        }
+        ndk {
+            moduleName = 'hellodjinni'
+            platformVersion = 14
+            toolchain = 'gcc'
+            toolchainVersion = '4.9'
+            stl = 'gnustl_shared'
+            CFlags.addAll(['-Wall', '-Werror'])
+            cppFlags.addAll(['-std=c++11', '-fexceptions', '-frtti'])
+            cppFlags.addAll([
+                    "-I${file('../../../deps/djinni/support-lib')}".toString(),
+                    "-I${file('../../../deps/djinni/support-lib/jni')}".toString(),
+                    "-I${file('../../../../generated-src/cpp')}".toString(),
+                    "-I${file('../../../../generated-src/jni')}".toString(),
+            ])
+            ldLibs.addAll(['log'])
+            abiFilters.addAll(['armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'])
+        }
+        sources {
+            //noinspection GroovyAssignabilityCheck
+            main {
+                jni {
+                    source {
+                        srcDirs += [
+                            '../../../deps/djinni/support-lib/jni',
+                            '../../../../generated-src/cpp',
+                            '../../../../generated-src/jni',
+                            '../../../../src/cpp',
+                        ]
+                    }
+                }
+                java {
+                    source {
+                        srcDirs += [
+                            '../../../../generated-src/java',
+                        ]
+                    }
+                }
+            }
+        }
+        buildTypes {
+            release {
+                minifyEnabled = false
+                proguardFiles.add(file('proguard-rules.pro'))
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    //compile 'com.android.support:appcompat-v7:23.3.0'
+}

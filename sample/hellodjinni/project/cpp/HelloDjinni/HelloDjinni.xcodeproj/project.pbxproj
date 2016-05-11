@@ -1,0 +1,254 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		521DEC961CDC83FD00563F26 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 521DEC951CDC83FD00563F26 /* main.cpp */; };
+		521DEC9F1CDC91D500563F26 /* hello_djinni_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 521DEC9D1CDC91D500563F26 /* hello_djinni_impl.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		521DEC901CDC83FD00563F26 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		521DEC921CDC83FD00563F26 /* HelloDjinni */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloDjinni; sourceTree = BUILT_PRODUCTS_DIR; };
+		521DEC951CDC83FD00563F26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		521DEC9C1CDC91D500563F26 /* hello_djinni_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_djinni_impl.hpp; path = ../../../../src/cpp/hello_djinni_impl.hpp; sourceTree = "<group>"; };
+		521DEC9D1CDC91D500563F26 /* hello_djinni_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hello_djinni_impl.cpp; path = ../../../../src/cpp/hello_djinni_impl.cpp; sourceTree = "<group>"; };
+		521DEC9E1CDC91D500563F26 /* hello_djinni.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_djinni.hpp; path = "../../../../generated-src/cpp/hello_djinni.hpp"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		521DEC8F1CDC83FD00563F26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		521DEC891CDC83FD00563F26 = {
+			isa = PBXGroup;
+			children = (
+				521DEC941CDC83FD00563F26 /* HelloDjinni */,
+				521DEC931CDC83FD00563F26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		521DEC931CDC83FD00563F26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				521DEC921CDC83FD00563F26 /* HelloDjinni */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		521DEC941CDC83FD00563F26 /* HelloDjinni */ = {
+			isa = PBXGroup;
+			children = (
+				521DEC9C1CDC91D500563F26 /* hello_djinni_impl.hpp */,
+				521DEC9D1CDC91D500563F26 /* hello_djinni_impl.cpp */,
+				521DEC9E1CDC91D500563F26 /* hello_djinni.hpp */,
+				521DEC951CDC83FD00563F26 /* main.cpp */,
+			);
+			path = HelloDjinni;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		521DEC911CDC83FD00563F26 /* HelloDjinni */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521DEC991CDC83FD00563F26 /* Build configuration list for PBXNativeTarget "HelloDjinni" */;
+			buildPhases = (
+				521DEC8E1CDC83FD00563F26 /* Sources */,
+				521DEC8F1CDC83FD00563F26 /* Frameworks */,
+				521DEC901CDC83FD00563F26 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloDjinni;
+			productName = HelloDjinni;
+			productReference = 521DEC921CDC83FD00563F26 /* HelloDjinni */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		521DEC8A1CDC83FD00563F26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = joinAero;
+				TargetAttributes = {
+					521DEC911CDC83FD00563F26 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 521DEC8D1CDC83FD00563F26 /* Build configuration list for PBXProject "HelloDjinni" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 521DEC891CDC83FD00563F26;
+			productRefGroup = 521DEC931CDC83FD00563F26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				521DEC911CDC83FD00563F26 /* HelloDjinni */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		521DEC8E1CDC83FD00563F26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521DEC9F1CDC91D500563F26 /* hello_djinni_impl.cpp in Sources */,
+				521DEC961CDC83FD00563F26 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		521DEC971CDC83FD00563F26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		521DEC981CDC83FD00563F26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		521DEC9A1CDC83FD00563F26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		521DEC9B1CDC83FD00563F26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		521DEC8D1CDC83FD00563F26 /* Build configuration list for PBXProject "HelloDjinni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521DEC971CDC83FD00563F26 /* Debug */,
+				521DEC981CDC83FD00563F26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		521DEC991CDC83FD00563F26 /* Build configuration list for PBXNativeTarget "HelloDjinni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521DEC9A1CDC83FD00563F26 /* Debug */,
+				521DEC9B1CDC83FD00563F26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 521DEC8A1CDC83FD00563F26 /* Project object */;
+}

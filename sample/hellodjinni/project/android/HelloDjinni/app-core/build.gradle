@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs += ['../../../../generated-src/java']
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    //compile 'com.android.support:appcompat-v7:23.3.0'
+}
+
+task ndkBuild(type: Exec) {
+    def moduleDir = System.getProperty("user.dir") + "/app-core/"
+    def ndkDir = plugins.getPlugin('com.android.library').sdkHandler.ndkFolder
+    if (ndkDir == null) {
+        def gradle_project_root = project.rootProject.rootDir
+        throw new GradleException("NDK is not configured. Make sure there is a local.properties " +
+                "file with an ndk.dir entry in the directory ${gradle_project_root}.")
+    }
+    def ndkBuildExecutable = new File(ndkDir, 'ndk-build')
+    if (!ndkBuildExecutable.exists()) {
+        throw new GradleException("Could not find ndk-build. The configured NDK directory ${ndkDir} may not be correct.")
+    }
+    environment("NDK_PROJECT_PATH", moduleDir)
+    environment("GYP_CONFIGURATION", "Release")
+    commandLine ndkBuildExecutable
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}

@@ -1,0 +1,4 @@
+hello_djinni = interface +c {
+    static create(): hello_djinni;
+    get_hello_djinni(): string;
+}

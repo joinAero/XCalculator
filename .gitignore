@@ -1,0 +1,20 @@
+.DS_Store
+
+# build artifacts
+build/
+obj/
+libs/
+
+# android makefiles
+GypAndroid.mk
+*.target.mk
+
+# idea stuff
+.idea/workspace.xml
+.idea/tasks.xml
+
+# xcode stuff
+project.xcworkspace
+DerivedData
+*.xccheckout
+*.xcuserdatad/
