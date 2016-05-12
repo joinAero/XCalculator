@@ -1,4 +1,7 @@
 .DS_Store
 
 /project/build
+/project/deps
 /project/properties.gypi
+
+/generated-src
