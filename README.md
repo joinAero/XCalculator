@@ -24,10 +24,19 @@ hellodjinni/
 │      └─HelloDjinni.xcworkspace/   # iOS Project Workspace
 ├─src/
 │  └─cpp/                           # Cpp Interface Impls
-└─tools/                            # Helper Scripts
+├─tools/                            # Helper Scripts
+└─local.properties                  # Local Properties
 ```
 
 ## Build & Clean
+
+**Set `local.properties`:**
+
+```
+djinni.dir=<path-to-djinni>
+gyp.dir=<path-to-gyp>
+ndk.dir=<path-to-ndk>
+```
 
 **Build all:**
 
