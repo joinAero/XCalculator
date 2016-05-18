@@ -13,6 +13,7 @@ java:
   package: cc.eevee.xcalc.core
 cpp:
   out:
+  ext:
   namespace: xcalc
 jni:
   out:
@@ -22,3 +23,7 @@ objc:
     prefix:
 objcpp:
   out:
+yaml:
+  out:
+    file:
+  prefix:

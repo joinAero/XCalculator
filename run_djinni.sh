@@ -54,7 +54,6 @@ generate() {
     --ident-java-field mFooBar \
     \
     --cpp-out "$out_dir/$cpp_out" \
-    --cpp-ext "cc" \
     --ident-cpp-enum-type foo_bar \
     \
     --jni-out "$out_dir/$jni_out" \
@@ -68,8 +67,12 @@ generate() {
 
     # Extra options
     [ -n "$java_package" ] && cmd+=(--java-package $java_package)
+    [ -n "$cpp_ext" ] && cmd+=(--cpp-ext $cpp_ext)
     [ -n "$cpp_namespace" ] && cmd+=(--cpp-namespace $cpp_namespace)
     [ -n "$objc_type_prefix" ] && cmd+=(--objc-type-prefix $objc_type_prefix)
+    [ -n "$yaml_out" ] && cmd+=(--yaml-out $yaml_out)
+    [ -n "$yaml_out_file" ] && cmd+=(--yaml-out-file $yaml_out_file)
+    [ -n "$yaml_prefix" ] && cmd+=(--yaml-prefix $yaml_prefix)
 
     # echo "${cmd[*]}"
 
