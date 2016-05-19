@@ -2,22 +2,64 @@
 set -e
 shopt -s nullglob
 
+while getopts ":cp:d:i:o:" opt; do
+    case "$opt" in
+        c) opt_clean=1 ;;
+        p) opt_profile="$OPTARG" ;;
+        d) opt_djinni_dir="$OPTARG" ;;
+        i) opt_in_idl="$OPTARG" ;;
+        o) opt_out_dir="$OPTARG" ;;
+        ?) echo "Usage: $0 [-c] [-p profile.yaml] [-d djinni_dir] [-i in_idl] [-o out_dir]"
+           exit 2 ;;
+    esac
+done
+
+
 base_dir=$(cd "`dirname "$0"`" && pwd)
 
-# Read profile yaml
-eval $($base_dir/tools/read_yaml.sh $base_dir/run_profile.yaml)
+profile_yaml="$opt_profile"
+[ -n "$profile_yaml" ] || profile_yaml="$base_dir/run_profile.yaml"
 
+# Read profile yaml
+eval $($base_dir/tools/read_yaml.sh $profile_yaml)
 
 # Set default values
-[ -n "$out_dir" ] || out_dir="generated-src"
+
+if [ -n "$opt_djinni_dir" ]; then
+    djinni_dir="$opt_djinni_dir"
+elif [ -z "$djinni_dir" ]; then
+    echo "Profile option required: djinni_dir" 1>&2
+    exit 2
+fi
+
+djinni_run="$djinni_dir/src/run-assume-built"
+if [ ! -x "$djinni_run" ]; then
+    echo "Executable djinni file not found: $djinni_run" 1>&2
+    exit 2
+fi
+
+if [ -n "$opt_in_idl" ]; then
+    in_idl="$opt_in_idl"
+elif [ -n "$in_idl" ]; then
+    in_idl="$base_dir/$in_idl"
+else
+    echo "Profile option required: in_idl" 1>&2
+    exit 2
+fi
+
+if [ -n "$opt_out_dir" ]; then
+    out_dir="$opt_out_dir"
+elif [ -n "$out_dir" ]; then
+    out_dir="$base_dir/$out_dir"
+else
+    out_dir="$base_dir/generated-src"
+fi
 
 [ -n "$java_out" ] || java_out="java"
 [ -n "$cpp_out" ] || cpp_out="cpp"
 [ -n "$jni_out" ] || jni_out="jni"
 [ -n "$objc_out" ] || objc_out="objc"
 [ -n "$objcpp_out" ] || objcpp_out="objc"
-
-out_dir=$base_dir/$out_dir
 
 
 # Clean output folder
@@ -29,15 +71,8 @@ clean() {
 }
 
 
-if [ $# -eq 0 ]; then
-    # Normal build.
-    true
-elif [ $# -eq 1 ]; then
-    cmd="$1"; shift
-    if [ "$cmd" != "clean" ]; then
-        echo "Unexpected argument: \"$cmd\"." 1>&2
-        exit 1
-    fi
+if [ ! -z $opt_clean ]; then
+    echo "Cleaning..."
     clean
     exit
 fi
@@ -45,9 +80,7 @@ fi
 
 # Generate djinni code
 generate() {
-    # "$djinni_dir/src/run-assume-built" --help
-
-    cmd+=("$djinni_dir/src/run-assume-built" \
+    cmd+=("$djinni_run" \
     --java-out "$out_dir/$java_out" \
     --java-nullable-annotation "javax.annotation.CheckForNull" \
     --java-nonnull-annotation "javax.annotation.Nonnull" \
@@ -63,7 +96,7 @@ generate() {
     --objc-out "$out_dir/$objc_out" \
     --objcpp-out "$out_dir/$objcpp_out" \
     \
-    --idl "$base_dir/$in_idl")
+    --idl "$in_idl")
 
     # Extra options
     [ -n "$java_package" ] && cmd+=(--java-package $java_package)
