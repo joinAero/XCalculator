@@ -32,7 +32,6 @@ dependencies {
 }
 
 task ndkBuild(type: Exec) {
-    def moduleDir = System.getProperty("user.dir") + "/app-core/"
     def ndkDir = plugins.getPlugin('com.android.library').sdkHandler.ndkFolder
     if (ndkDir == null) {
         def gradle_project_root = project.rootProject.rootDir
@@ -43,7 +42,7 @@ task ndkBuild(type: Exec) {
     if (!ndkBuildExecutable.exists()) {
         throw new GradleException("Could not find ndk-build. The configured NDK directory ${ndkDir} may not be correct.")
     }
-    environment("NDK_PROJECT_PATH", moduleDir)
+    environment("NDK_PROJECT_PATH", projectDir)
     environment("GYP_CONFIGURATION", "Release")
     commandLine ndkBuildExecutable
 }
