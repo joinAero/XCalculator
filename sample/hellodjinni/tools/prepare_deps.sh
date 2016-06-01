@@ -30,7 +30,9 @@ copy() {
 deps_dir=$out_dir/deps
 deps_djinni_dir=$deps_dir/djinni
 
-echo "Copying djinni..."
-copy "$djinni_dir/support-lib" "$deps_djinni_dir/support-lib"
-copy "$djinni_dir/common.gypi" "$deps_djinni_dir/common.gypi"
-copy "$djinni_dir/example/glob.py" "$deps_djinni_dir/example/glob.py"
+if ! [[ "$djinni_dir" -ef "$deps_djinni_dir" ]]; then
+    echo "Copying djinni..."
+    copy "$djinni_dir/support-lib" "$deps_djinni_dir/support-lib"
+    copy "$djinni_dir/common.gypi" "$deps_djinni_dir/common.gypi"
+    copy "$djinni_dir/example/glob.py" "$deps_djinni_dir/example/glob.py"
+fi
