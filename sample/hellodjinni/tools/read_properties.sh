@@ -7,7 +7,7 @@ else
 fi
 
 # Read properties
-eval $(cat ${prop_file} | sed 's/<[^>]*>//g;s/\./_/g')
+eval $(cat ${prop_file} | sed 's/<[^>]*>//g;s/\.dir=/_dir=/')
 
 # Set default to properties
 if [[ -z $ndk_dir ]]; then
